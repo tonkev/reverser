@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/RightHalveVase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LeftHalveVase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerWRepairGun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://resources/TileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/RepairableBridge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Mercenary.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/LevelFinish.tscn" type="PackedScene" id=7]
+
+[node name="Level02" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"ground",
+]]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 30, 1, 0, 31, 1, 0, 65536, 1, 0, 65567, 1, 0, 131072, 1, 0, 131103, 1, 0, 196608, 1, 0, 196639, 1, 0, 262175, 1, 0, 327711, 1, 0, 393247, 1, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 2, 0, 458775, 4, 0, 458776, 1, 0, 458777, 1, 0, 458778, 1, 0, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 524288, 1, 0, 524319, 1, 0, 589824, 1, 0, 589855, 1, 0, 655360, 1, 0, 655391, 1, 0, 720896, 1, 0, 720927, 1, 0, 786432, 1, 0, 786463, 1, 0, 851968, 1, 0, 851999, 1, 0, 917504, 1, 0, 917535, 1, 0, 983040, 1, 0, 983071, 1, 0, 1048576, 1, 0, 1048607, 1, 0, 1114112, 1, 0, 1114143, 1, 0, 1179648, 1, 0, 1179649, 1, 0, 1179650, 1, 0, 1179651, 1, 0, 1179652, 1, 0, 1179653, 1, 0, 1179654, 1, 0, 1179655, 1, 0, 1179656, 1, 0, 1179657, 1, 0, 1179658, 1, 0, 1179659, 1, 0, 1179660, 1, 0, 1179661, 1, 0, 1179662, 1, 0, 1179663, 1, 0, 1179664, 1, 0, 1179665, 1, 0, 1179666, 1, 0, 1179667, 1, 0, 1179668, 1, 0, 1179669, 1, 0, 1179670, 1, 0, 1179671, 1, 0, 1179672, 1, 0, 1179673, 1, 0, 1179674, 1, 0, 1179675, 1, 0, 1179676, 1, 0, 1179677, 1, 0, 1179678, 1, 0, 1179679, 1, 0 )
+
+[node name="LeftHalveVase" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 272 )
+other_halve_path = NodePath("../RightHalveVase")
+
+[node name="RightHalveVase" parent="." instance=ExtResource( 1 )]
+position = Vector2( 312, 272 )
+other_halve_path = NodePath("../LeftHalveVase")
+
+[node name="RepairableBridge" parent="." instance=ExtResource( 5 )]
+position = Vector2( 464, 265 )
+rotation = -0.523599
+
+[node name="Mercenary" parent="." instance=ExtResource( 6 )]
+position = Vector2( 216, 280 )
+stationary = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="LevelFinish" parent="." instance=ExtResource( 7 )]
+position = Vector2( 8, 88 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 48, 280 )
+
+[editable path="RepairableBridge"]

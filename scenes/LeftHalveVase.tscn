@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/halve_vase.png" type="Texture" id=1]
+[ext_resource path="res://scripts/HalveVase.gd" type="Script" id=2]
+[ext_resource path="res://wavs/split.wav" type="AudioStream" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 16.0
+
+[node name="LeftHalveVase" type="RigidBody2D" groups=[
+"ground",
+]]
+contacts_reported = 5
+contact_monitor = true
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="SplitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0

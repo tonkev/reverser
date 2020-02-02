@@ -1,0 +1,270 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://sprites/player.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 4, 7.5 )
+
+[sub_resource type="Animation" id=37]
+resource_name = "Falling"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 24, 25, 26, 27, 28, 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "Invulnerable"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "Running"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=41]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=43]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Vulnerable"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0142524 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AnimationNodeAdd2" id=10]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Invulnerable"
+
+[sub_resource type="AnimationNodeBlend2" id=12]
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Falling"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Jumping"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Running"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=27]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+
+[sub_resource type="AnimationNodeStateMachine" id=29]
+states/Falling/node = SubResource( 13 )
+states/Falling/position = Vector2( 476, 265 )
+states/Jumping/node = SubResource( 14 )
+states/Jumping/position = Vector2( 300, 171 )
+states/Running/node = SubResource( 15 )
+states/Running/position = Vector2( 667, 171 )
+states/Standing/node = SubResource( 16 )
+states/Standing/position = Vector2( 476, 76 )
+transitions = [ "Standing", "Running", SubResource( 17 ), "Running", "Falling", SubResource( 18 ), "Falling", "Jumping", SubResource( 19 ), "Jumping", "Standing", SubResource( 20 ), "Running", "Standing", SubResource( 21 ), "Standing", "Jumping", SubResource( 22 ), "Jumping", "Falling", SubResource( 23 ), "Falling", "Running", SubResource( 24 ), "Standing", "Falling", SubResource( 25 ), "Falling", "Standing", SubResource( 26 ), "Running", "Jumping", SubResource( 27 ), "Jumping", "Running", SubResource( 28 ) ]
+
+[sub_resource type="AnimationNodeOneShot" id=30]
+
+[sub_resource type="AnimationNodeOneShot" id=31]
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "TurnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "Vulnerable"
+
+[sub_resource type="AnimationNodeBlendTree" id=35]
+graph_offset = Vector2( -174.581, 40.5 )
+nodes/Add2/node = SubResource( 10 )
+nodes/Add2/position = Vector2( 680, 120 )
+nodes/InvulnerableAnim/node = SubResource( 11 )
+nodes/InvulnerableAnim/position = Vector2( 340, 580 )
+nodes/InvulnerableBlend/node = SubResource( 12 )
+nodes/InvulnerableBlend/position = Vector2( 540, 360 )
+nodes/MoveState/node = SubResource( 29 )
+nodes/MoveState/position = Vector2( -20, 120 )
+nodes/TurnLeft/node = SubResource( 30 )
+nodes/TurnLeft/position = Vector2( 240, 120 )
+nodes/TurnRight/node = SubResource( 31 )
+nodes/TurnRight/position = Vector2( 440, 120 )
+nodes/TurningLeft/node = SubResource( 32 )
+nodes/TurningLeft/position = Vector2( -20, 280 )
+nodes/TurningRight/node = SubResource( 33 )
+nodes/TurningRight/position = Vector2( 240, 300 )
+nodes/VulnerableAnim/node = SubResource( 34 )
+nodes/VulnerableAnim/position = Vector2( 340, 440 )
+nodes/output/position = Vector2( 900, 160 )
+node_connections = [ "output", 0, "Add2", "InvulnerableBlend", 0, "VulnerableAnim", "InvulnerableBlend", 1, "InvulnerableAnim", "TurnRight", 0, "TurnLeft", "TurnRight", 1, "TurningRight", "Add2", 0, "TurnRight", "Add2", 1, "InvulnerableBlend", "TurnLeft", 0, "MoveState", "TurnLeft", 1, "TurningLeft" ]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 8
+frame = 24
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 36 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Falling = SubResource( 37 )
+anims/Invulnerable = SubResource( 38 )
+anims/Jumping = SubResource( 39 )
+anims/Running = SubResource( 40 )
+anims/Standing = SubResource( 41 )
+anims/TurnLeft = SubResource( 42 )
+anims/TurnRight = SubResource( 43 )
+anims/Vulnerable = SubResource( 44 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 35 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/Add2/add_amount = 1.0
+parameters/InvulnerableBlend/blend_amount = 0.0
+parameters/MoveState/playback = SubResource( 45 )
+parameters/TurnLeft/active = false
+parameters/TurnRight/active = false

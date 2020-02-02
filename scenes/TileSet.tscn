@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/tiles.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="TileSet" type="Node2D"]
+
+[node name="Void" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="Ground" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground" groups=[
+"tiles",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="LeftBridge" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LeftBridge" groups=[
+"tiles",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBridge/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="CenterBridge" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CenterBridge" groups=[
+"tiles",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterBridge/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="RightBridge" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RightBridge" groups=[
+"tiles",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBridge/StaticBody2D"]
+shape = SubResource( 1 )

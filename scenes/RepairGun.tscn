@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/RepairGun.gd" type="Script" id=1]
+[ext_resource path="res://sprites/reverser.png" type="Texture" id=2]
+[ext_resource path="res://wavs/reverse.wav" type="AudioStream" id=3]
+
+[node name="RepairGun" type="Node2D"]
+script = ExtResource( 1 )
+aim_color = Color( 0.988235, 0.737255, 0.207843, 1 )
+repair_color = Color( 0.141176, 1, 0.133333, 1 )
+
+[node name="Pointer" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 1, 0.74902, 0, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="RepairSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
